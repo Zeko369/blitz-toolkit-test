@@ -40,12 +40,12 @@ const PrefetchTestPage: BlitzPage = (props) => {
 }
 
 // export const getStaticProps = gSP(async ({ ctx }) => {
-// export const getServerSideProps = gSSP(async ({ ctx }) => {
-//   await Promise.all([ctx.prefetchQuery(getFoo, undefined), ctx.prefetchQuery(getBar, undefined)])
-//
-//   return {
-//     props: {},
-//   }
-// })
+export const getServerSideProps = gSSP(async ({ ctx }) => {
+  await Promise.all([ctx.prefetchQuery(getFoo, undefined), ctx.prefetchQuery(getBar, undefined)])
+
+  return {
+    props: {},
+  }
+})
 
 export default PrefetchTestPage
