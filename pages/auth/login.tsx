@@ -1,8 +1,9 @@
 import Layout from "app/core/layouts/Layout"
 import { LoginForm } from "app/auth/components/LoginForm"
 import { useRouter } from "next/router"
+import { BlitzPage } from "@blitzjs/auth"
 
-const LoginPage = () => {
+const LoginPage: BlitzPage = () => {
   const router = useRouter()
 
   return (
@@ -16,5 +17,7 @@ const LoginPage = () => {
     </Layout>
   )
 }
+
+LoginPage.redirectAuthenticatedTo = "/"
 
 export default LoginPage

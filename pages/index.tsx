@@ -91,7 +91,7 @@ const Home = () => {
             </pre>
             <p>
               and go to{" "}
-              <Link href="/projects">
+              <Link href="/animals">
                 <a>/projects</a>
               </Link>
             </p>

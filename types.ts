@@ -1,4 +1,4 @@
-import { SimpleRolesIsAuthorized } from "@blitzjs/auth"
+import { SessionContext, SimpleRolesIsAuthorized } from "@blitzjs/auth"
 import { User } from "db"
 
 export type Role = "ADMIN" | "USER"
@@ -13,3 +13,9 @@ declare module "@blitzjs/auth" {
     }
   }
 }
+
+// declare module "blitz" {
+//   export interface Ctx {
+//     session: SessionContext
+//   }
+// }
