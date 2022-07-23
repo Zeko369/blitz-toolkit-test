@@ -9,6 +9,7 @@
     "db:deploy": "blitz prisma migrate deploy",
     "blitz:build": "blitz build",
     "build": "yarn db:deploy && yarn blitz:build",
+    "start-prod": "blitz start -p $PORT",
     "start": "blitz start",
     "studio": "blitz prisma studio",
     "lint": "eslint --ignore-path .gitignore --ext .js,.ts,.tsx .",
