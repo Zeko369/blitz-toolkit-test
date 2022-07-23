@@ -10,11 +10,6 @@ export const { gSSP, gSP, api } = setupBlitzServer({
       ...authConfig,
       storage: PrismaStorage(db),
       isAuthorized: simpleRolesIsAuthorized,
-      hooks: {
-        onAuthMiddleware: (sc) => {
-          console.log("USERLAND", sc.userId)
-        },
-      },
     }),
   ],
 })

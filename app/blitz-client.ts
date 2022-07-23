@@ -15,11 +15,6 @@ export const { withBlitz } = setupBlitzClient({
   plugins: [
     AuthClientPlugin({
       ...authConfig,
-      hooks: {
-        onAuthorize: (session) => {
-          console.log("CLIENT", session)
-        },
-      },
     }),
     BlitzRpcPlugin({
       reactQueryOptions: {

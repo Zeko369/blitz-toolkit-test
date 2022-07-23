@@ -1,17 +1,16 @@
 import db from "db"
 import { z } from "zod"
+import { resolver } from "@blitzjs/rpc"
 
 const UpdateAnimalInput = z.object({
   id: z.number(),
-  name: z.string(),
+  data: z.object({
+    name: z.string(),
+  }),
 })
 
-export default async function UpdateAnimal(input, ctx: Ctx) {
-  UpdateAnimalInput.parse(input)
-  ctx.session.$isAuthorized()
+const createAnimalFn = resolver.pipe(resolver.zod(UpdateAnimalInput), async ({ id, data }, ctx) => {
+  return await db.animal.update({ where: { id }, data })
+})
 
-  // TODO: in multi-tenant app, you must add validation to ensure correct tenant
-  const animal = await db.animal.update({ where: { id: input.id }, input })
-
-  return animal
-}
+export default createAnimalFn
