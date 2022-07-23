@@ -5,6 +5,8 @@
     "clean": "rm -rf ./node_modules .next && yarn",
     "dev": "blitz dev",
     "dev:clean": "rm -rf .next && yarn dev",
+    "db:migrate": "blitz prisma migrate dev",
+    "db:deploy": "blitz prisma migrate deploy",
     "build": "blitz build",
     "start": "blitz start",
     "studio": "blitz prisma studio",
