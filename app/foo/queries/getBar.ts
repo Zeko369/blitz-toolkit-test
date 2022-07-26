@@ -3,7 +3,7 @@ import { resolver } from "@blitzjs/rpc"
 
 export const getBarSchema = z.void()
 
-const getBar = resolver.pipe(resolver.zod(getBarSchema), async () => {
+const getBar = resolver.pipe(resolver.zod(getBarSchema), async (_, ctx) => {
   console.log("running getBar")
   await new Promise((resolve) => setTimeout(resolve, 1000))
   return 10
