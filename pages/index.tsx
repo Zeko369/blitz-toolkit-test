@@ -59,6 +59,10 @@ const Home = () => {
       <main>
         <Link href={Routes.PrefetchTestPage()}>Prefetch</Link>
         <Link href={Routes.AnimalsPage()}>Animals</Link>
+        <Link href={Routes.AnimalsPage({ qp: 10 })}>Query Params</Link>
+        <Link href={Routes.AnimalsPage({ qp: "10" })}>Query Params</Link>
+        <Link href={Routes.AnimalsPage({ qp: ["10", "10"] })}>Query Params</Link>
+
         <br />
 
         <Suspense fallback="Loading...">
