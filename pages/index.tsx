@@ -5,8 +5,9 @@ import Layout from "app/core/layouts/Layout"
 import { useCurrentUser } from "app/core/hooks/useCurrentUser"
 import logout from "app/auth/mutations/logout"
 import logo from "public/logo.png"
-import { useMutation } from "@blitzjs/rpc"
+import { invalidateQuery, useMutation } from "@blitzjs/rpc"
 import { Routes } from "@blitzjs/next"
+import getCurrentUser from "app/users/queries/getCurrentUser"
 
 /*
  * This file is just for a pleasant getting started page for your new app.
@@ -54,6 +55,10 @@ const UserInfo = () => {
 }
 
 const Home = () => {
+  const onInvalidate = async () => {
+    await invalidateQuery(getCurrentUser)
+  }
+
   return (
     <Layout title="Home">
       <main>
@@ -68,6 +73,10 @@ const Home = () => {
         <Suspense fallback="Loading...">
           <UserInfo />
         </Suspense>
+
+        <br />
+
+        <button onClick={onInvalidate}>Invalidate query</button>
       </main>
     </Layout>
   )
