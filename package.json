@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "clean": "rm -rf ./node_modules .next && yarn",
-    "dev": "blitz dev",
+    "dev": "blitz dev -p 3100",
     "dev:clean": "rm -rf .next && yarn dev",
     "db:migrate": "blitz prisma migrate dev",
     "db:deploy": "blitz prisma migrate deploy",
