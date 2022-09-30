@@ -8,6 +8,9 @@ import logo from "public/logo.png"
 import { invalidateQuery, useMutation } from "@blitzjs/rpc"
 import { Routes } from "@blitzjs/next"
 import getCurrentUser from "app/users/queries/getCurrentUser"
+import { NextRouter, useRouter } from "next/router"
+import { ParsedUrlQueryInput } from "querystring"
+import { string } from "zod"
 
 /*
  * This file is just for a pleasant getting started page for your new app.
@@ -54,10 +57,28 @@ const UserInfo = () => {
   }
 }
 
+const TypedLink = <T extends keyof typeof Routes>({}: { page: T } & Parameters<
+  typeof Routes[T]
+>[0]) => {
+  return null
+}
+
+const useTypeSafeRouter = <T extends keyof typeof Routes>(
+  page: T
+): Omit<NextRouter, "query"> & { query: Parameters<typeof Routes[T]>[0] } => {
+  return useRouter()
+}
+
 const Home = () => {
   const onInvalidate = async () => {
     await invalidateQuery(getCurrentUser)
   }
+
+  const router = useTypeSafeRouter("EditAnimalPage")
+  const { animalId } = router.query
+  //       ^?
+  const { anyOtherProp } = router.query
+  //       ^?
 
   return (
     <Layout title="Home">
@@ -67,6 +88,11 @@ const Home = () => {
         <Link href={Routes.AnimalsPage({ qp: 10 })}>Query Params</Link>
         <Link href={Routes.AnimalsPage({ qp: "10" })}>Query Params</Link>
         <Link href={Routes.AnimalsPage({ qp: ["10", "10"] })}>Query Params</Link>
+
+        <TypedLink page="ShowAnimalPage" animalId={123}>
+          Foo
+        </TypedLink>
+        <TypedLink page="ShowAnimalPage">Foo</TypedLink>
 
         <br />
 
