@@ -1,4 +1,4 @@
-import db from "db"
+import db from "prisma"
 import { SecurePassword } from "@blitzjs/auth"
 import { Role } from "types"
 
