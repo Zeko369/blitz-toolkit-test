@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Your Password Reset Instructions</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+    <style type="text/css">
+      body {
+        font-family: arial, sans-serif;
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+      table {
+        padding-left: 10px;
+        padding-right: 10px;
+        font-size: 13px;
+      }
+      td {
+        padding: 6px 0 6px 0;
+      }
+      th {
+        text-align: right;
+        color: #999;
+        font-weight: normal;
+        padding: 6px 16px 6px 0
+      }
+      iframe {
+        border: 0;
+        height: 100%;
+        width: 100%;
+        min-height: 800px;
+        max-width: 600px;
+        display: block;
+        border: 1px solid black;
+      }
+      
+    </style>
+  </head>
+  <body>
+    <p><strong>Subject:</strong></p>
+    <p>Your Password Reset Instructions</p>
+    <p><strong>Headers:</strong></p>
+    <pre><code>Content-Type: text/html; charset=utf-8<br>From: TODO@example.com<br>To: foo@bar.com<br>Subject: Your Password Reset Instructions<br>Message-ID: &lt;ac389bec-74e5-2930-fc9f-186a7b561895@example.com&gt;<br>Content-Transfer-Encoding: quoted-printable<br>Date: Mon, 03 Oct 2022 11:39:13 +0000<br>MIME-Version: 1.0</code></pre>
+    <p><strong>HTML:</strong></p>
+    <p>
+      <iframe seamless="seamless" srcdoc="&lt;base target='_top'&gt;
+      &lt;h1&gt;Reset Your Password&lt;/h1&gt;
+      &lt;h3&gt;NOTE: You must set up a production email integration in mailers/forgotPasswordMailer.ts&lt;/h3&gt;
+
+      &lt;a href=&quot;http://localhost:3100/reset-password?token=8cdbU0l-zE-TZhOxYDpJ02ehR6rwm-Ql&quot;&gt;
+        Click here to set a new password
+      &lt;/a&gt;
+    
+"></iframe>
+    </p>
+    <p><strong>TEXT:</strong></p>
+    <p>
+      <iframe seamless="seamless" srcdoc="&lt;pre&gt;RESET YOUR PASSWORD
+
+
+NOTE: YOU MUST SET UP A PRODUCTION EMAIL INTEGRATION IN
+MAILERS/FORGOTPASSWORDMAILER.TS
+
+Click here to set a new password
+[http://localhost:3100/reset-password?token=8cdbU0l-zE-TZhOxYDpJ02ehR6rwm-Ql]&lt;/pre&gt;"></iframe>
+    </p>
+  </body>
+</html>

@@ -1,5 +1,5 @@
 import resetPassword from "./resetPassword"
-import db from "prisma"
+import db from "db"
 import { SecurePassword, hash256 } from "@blitzjs/auth"
 
 beforeEach(async () => {

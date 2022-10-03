@@ -5,6 +5,8 @@
  * and use it straight away.
  */
 
+import { join } from "path"
+
 type ResetPasswordMailer = {
   to: string
   token: string
@@ -38,7 +40,7 @@ export function forgotPasswordMailer({ to, token }: ResetPasswordMailer) {
       } else {
         // Preview email in the browser
         const previewEmail = (await import("preview-email")).default
-        await previewEmail(msg)
+        await previewEmail(msg, { open: true, dir: join(process.cwd(), "./tmp") })
       }
     },
   }

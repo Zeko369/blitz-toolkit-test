@@ -1,5 +1,5 @@
 import { SessionContext, SimpleRolesIsAuthorized } from "@blitzjs/auth"
-import { User } from "prisma"
+import { User } from "db"
 
 export type Role = "ADMIN" | "USER"
 
